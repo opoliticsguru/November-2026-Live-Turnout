@@ -143,7 +143,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = '-Source: Various County Boards of Elections<br /><br />-Follow: @OPoliticsGuru<br /><br />-Registered Voters: 2143892<br /><br />-Early Ballots Cast: 433753<br /><br />-Election Day Ballots Cast: 7<br /><br />-Total Ballots Cast: 433760<br /><br />-Turnout: 20.23%<br /><br />-Last Updated: 02-Nov-2026 17:30:11';
+                this._div.innerHTML = '-Source: Various County Boards of Elections<br /><br />-Follow: @OPoliticsGuru<br /><br />-Registered Voters: 4268798<br /><br />-Early Ballots Cast: 863869<br /><br />-Election Day Ballots Cast: 1133<br /><br />-Total Ballots Cast: 865002<br /><br />-Turnout: 20.26%<br /><br />-Last Updated: 02-Nov-2026 23:04:57';
 };
  abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -203,6 +203,22 @@
                     <tr>\
                         <th scope="row">Turnout</th>\
                         <td>' + (feature.properties['Turn'] !== null ? autolinker.link(String(feature.properties['Turn']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ballots Cast (2022)</th>\
+                        <td>' + (feature.properties['Turn_D'] !== null ? autolinker.link(String(feature.properties['Turn_D']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ballots Cast (2024)</th>\
+                        <td>' + (feature.properties['Turn_L'] !== null ? autolinker.link(String(feature.properties['Turn_L']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">% of 2022</th>\
+                        <td>' + (feature.properties['%NON'] !== null ? autolinker.link(String(feature.properties['%NON']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">% of 2024</th>\
+                        <td>' + (feature.properties['%R'] !== null ? autolinker.link(String(feature.properties['%R']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -457,8 +473,24 @@
                         <td>' + (feature.properties['Ballot_R'] !== null ? autolinker.link(String(feature.properties['Ballot_R']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Early Turnout</th>\
+                        <th scope="row">Turnout</th>\
                         <td>' + (feature.properties['Turn'] !== null ? autolinker.link(String(feature.properties['Turn']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ballots Cast (2022)</th>\
+                        <td>' + (feature.properties['Turn_D'] !== null ? autolinker.link(String(feature.properties['Turn_D']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ballots Cast (2024)</th>\
+                        <td>' + (feature.properties['Turn_L'] !== null ? autolinker.link(String(feature.properties['Turn_L']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">% of 2022</th>\
+                        <td>' + (feature.properties['NON%'] !== null ? autolinker.link(String(feature.properties['NON%']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">% of 2024</th>\
+                        <td>' + (feature.properties['R%'] !== null ? autolinker.link(String(feature.properties['R%']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -937,9 +969,9 @@
         });
         bounds_group.addLayer(layer_Precinct_3);
         var overlaysTree = [
-            {label: 'Precinct<br /><table><tr><td style="text-align: center;"><img src="legend/Precinct_3_50.png" /></td><td>>30.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_451.png" /></td><td>28.82-30.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_342.png" /></td><td>26.82-28.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_233.png" /></td><td>24.82-26.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_124.png" /></td><td>22.82-24.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_015.png" /></td><td>20.82-22.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_06.png" /></td><td>20.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_107.png" /></td><td>18.82-20.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_218.png" /></td><td>16.82-18.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_329.png" /></td><td>14.82-16.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_4310.png" /></td><td>12.82-14.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_4511.png" /></td><td>10.82-12.82%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_512.png" /></td><td><10.82%</td></tr></table>', layer: layer_Precinct_3},
- {label: 'City/Twp<br /><table><tr><td style="text-align: center;"><img src="legend/CityTownship_2_50.png" /></td><td>>30.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_451.png" /></td><td>28.82-30.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_342.png" /></td><td>26.82-28.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_233.png" /></td><td>24.82-26.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_124.png" /></td><td>22.82-24.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_015.png" /></td><td>20.82-22.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_06.png" /></td><td>20.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_107.png" /></td><td>18.82-20.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_218.png" /></td><td>16.82-18.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_329.png" /></td><td>14.82-16.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_4310.png" /></td><td>12.82-14.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_4511.png" /></td><td>10.82-12.82%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_512.png" /></td><td><10.82%</td></tr></table>', layer: layer_CityTownship_2},
- {label: 'County<br /><table><tr><td style="text-align: center;"><img src="legend/County_1_50.png" /></td><td>>30.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_451.png" /></td><td>28.82-30.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_342.png" /></td><td>26.82-28.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_233.png" /></td><td>24.82-26.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_124.png" /></td><td>22.82-24.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_015.png" /></td><td>20.82-22.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_06.png" /></td><td>20.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_107.png" /></td><td>18.82-20.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_218.png" /></td><td>16.82-18.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_329.png" /></td><td>14.82-16.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_4310.png" /></td><td>12.82-14.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_4511.png" /></td><td>10.82-12.82%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_512.png" /></td><td><10.82%</td></tr></table>', layer: layer_County_1},
+            {label: 'Precinct<br /><table><tr><td style="text-align: center;"><img src="legend/Precinct_3_50.png" /></td><td>>30.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_451.png" /></td><td>28.26-30.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_342.png" /></td><td>26.26-28.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_233.png" /></td><td>24.26-26.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_124.png" /></td><td>22.26-24.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_015.png" /></td><td>20.26-22.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_06.png" /></td><td>20.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_107.png" /></td><td>18.26-20.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_218.png" /></td><td>16.26-18.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_329.png" /></td><td>14.26-16.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_4310.png" /></td><td>12.26-14.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_4511.png" /></td><td>10.26-12.26%</td></tr><tr><td style="text-align: center;"><img src="legend/Precinct_3_512.png" /></td><td><10.26%</td></tr></table>', layer: layer_Precinct_3},
+ {label: 'City/Twp<br /><table><tr><td style="text-align: center;"><img src="legend/CityTownship_2_50.png" /></td><td>>30.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_451.png" /></td><td>28.26-30.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_342.png" /></td><td>26.26-28.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_233.png" /></td><td>24.26-26.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_124.png" /></td><td>22.26-24.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_015.png" /></td><td>20.26-22.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_06.png" /></td><td>20.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_107.png" /></td><td>18.26-20.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_218.png" /></td><td>16.26-18.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_329.png" /></td><td>14.26-16.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_4310.png" /></td><td>12.26-14.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_4511.png" /></td><td>10.26-12.26%</td></tr><tr><td style="text-align: center;"><img src="legend/CityTownship_2_512.png" /></td><td><10.26%</td></tr></table>', layer: layer_CityTownship_2},
+ {label: 'County<br /><table><tr><td style="text-align: center;"><img src="legend/County_1_50.png" /></td><td>>30.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_451.png" /></td><td>28.26-30.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_342.png" /></td><td>26.26-28.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_233.png" /></td><td>24.26-26.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_124.png" /></td><td>22.26-24.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_015.png" /></td><td>20.26-22.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_06.png" /></td><td>20.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_107.png" /></td><td>18.26-20.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_218.png" /></td><td>16.26-18.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_329.png" /></td><td>14.26-16.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_4310.png" /></td><td>12.26-14.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_4511.png" /></td><td>10.26-12.26%</td></tr><tr><td style="text-align: center;"><img src="legend/County_1_512.png" /></td><td><10.26%</td></tr></table>', layer: layer_County_1},
  {label: "Google Road", layer: layer_GoogleRoad_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
